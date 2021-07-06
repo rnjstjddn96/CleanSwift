@@ -10,13 +10,13 @@ import Combine
 import Alamofire
 import UIKit
 
-protocol MpayService {
+protocol APIService {
     var session: NetworkService { get }
 }
 
-extension MpayService {
-    func test(string: String) -> AnyPublisher<APIResult<Terms>, APIError> {
-        return session.request(MpayAPI.TEST(string))
+extension APIService {
+    func test(string: String) -> AnyPublisher<APIResult<TestModel>, APIError> {
+        return session.request(API.TEST(string))
             .eraseToAnyPublisher()
     }
 }

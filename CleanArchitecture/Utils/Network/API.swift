@@ -14,7 +14,7 @@ enum API {
    
 }
 
-extension MpayAPI: RequestBuilder {
+extension API: RequestBuilder {
     
     var request: DataRequest {
         let url = NetworkConfig.url.appendingPathComponent(path)
@@ -46,10 +46,8 @@ extension MpayAPI: RequestBuilder {
         var headers = HTTPHeaders()
         switch self {
         
-        //X-AUTH-TOKEN 필요, multipart
         case .TEST:
             return headers
-        //X-AUTH-TOKEN 필요 X, JSON
         }
     }
     

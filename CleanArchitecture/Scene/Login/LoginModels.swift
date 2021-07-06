@@ -1,5 +1,5 @@
 //
-//  MainWorker.swift
+//  LoginModels.swift
 //  CleanArchitecture
 //
 //  Created by imform-mm-2101 on 2021/07/06.
@@ -12,9 +12,14 @@
 
 import UIKit
 
-class MainWorker
-{
-  func doSomeWork()
-  {
-  }
+enum Login {
+    // MARK: Use cases
+    enum Something {
+        struct Request {
+        }
+        struct Response {
+        }
+        struct ViewModel {
+        }
+    }
 }
