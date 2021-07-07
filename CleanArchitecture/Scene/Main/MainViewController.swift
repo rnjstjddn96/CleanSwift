@@ -15,8 +15,8 @@ import RxCocoa
 import RxSwift
 
 protocol MainDisplayLogic: class {
-    func displaySomething(viewModel: Main.Something.ViewModel)
-    func displayError(viewModel: Main.Something.ViewModel)
+    func displayTest(viewModel: Main.TodoList.ViewModel)
+    func displayError(viewModel: Main.TodoList.ViewModel)
 }
 
 class MainViewController: UIViewController, MainDisplayLogic {
@@ -24,6 +24,7 @@ class MainViewController: UIViewController, MainDisplayLogic {
     var router: (NSObjectProtocol & MainRoutingLogic & MainDataPassing)?
     var disposeBag = DisposeBag()
     let mainView = MainView()
+    
     
     // MARK: Object lifecycle
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -37,7 +38,6 @@ class MainViewController: UIViewController, MainDisplayLogic {
     }
     
     // MARK: Setup
-    
     private func setup() {
         let viewController = self
         let interactor = MainInteractor()
@@ -51,46 +51,67 @@ class MainViewController: UIViewController, MainDisplayLogic {
         router.dataStore = interactor
     }
     
-    // MARK: Routing
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let scene = segue.identifier {
-            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-            if let router = router, router.responds(to: selector) {
-                router.perform(selector, with: segue)
-            }
-        }
-    }
-    
     // MARK: View lifecycle
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         mainView.initMainView(to: self.view)
+        setAction()
+    }
+    
+    //MARK: Private
+    private func requestTest() {
+        let request = Main.TodoList.Request()
+        interactor?.reqeustTodos(request: request)
+    }
+    
+    private func setAction() {
+//        mainView.button.rx.tap
+//            .observe(on: MainScheduler.instance)
+//            .subscribe { [weak self] _ in
+//                self?.router?.routeToSomewhere()
+//            }
+//            .disposed(by: disposeBag)
+        
         mainView.button.rx.tap
-            .observe(on: MainScheduler.instance)
-            .subscribe { [weak self] _ in
-                self?.router?.routeToSomewhere()
+            .asDriver()
+            .drive { [weak self] _ in
+                guard let self = self else { return }
+                self.requestTest()
             }
             .disposed(by: disposeBag)
         
-        doSomething()
+        mainView.buttonTextSubject
+            .bind { [weak self] in
+                self?.mainView.button.setTitle($0, for: .normal)
+            }
+            .disposed(by: disposeBag)
+            
     }
     
-    // MARK: Do something
-    
-    //@IBOutlet weak var nameTextField: UITextField!
-    
-    func doSomething() {
-        let request = Main.Something.Request()
-        interactor?.doSomething(request: request)
+    //MARK: Display logic
+    func displayTest(viewModel: Main.TodoList.ViewModel) {
+        let count = viewModel.result.count
+        let message = "\(count)개의 할일이 있습니다"
+        mainView.buttonTextSubject.onNext(message)
+        AlertUtils.displayBasicAlert(controller: self, title: "Data 수신 성공",
+                                     message: message,
+                                     showCancelButton: false,
+                                     okButtonTitle: "확인",
+                                     cancelButtonTitle: "취소",
+                                     okButtonCallback: {
+                                        self.router?.routeToSomewhere()
+                                     },
+                                     cancelButtonCallback: nil)
     }
     
-    func displaySomething(viewModel: Main.Something.ViewModel) {
-        //nameTextField.text = viewModel.name
-    }
-    
-    func displayError(viewModel: Main.Something.ViewModel) {
-        print(viewModel.error?.localizedDescription ?? "")
+    func displayError(viewModel: Main.TodoList.ViewModel) {
+        AlertUtils.displayBasicAlert(controller: self, title: "Data를 받지 못했습니다",
+                                     message: viewModel.error?.localizedDescription ?? "",
+                                     showCancelButton: false,
+                                     okButtonTitle: "확인",
+                                     cancelButtonTitle: "취소",
+                                     okButtonCallback: nil,
+                                     cancelButtonCallback: nil)
     }
 }

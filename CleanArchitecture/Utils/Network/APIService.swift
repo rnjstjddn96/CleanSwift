@@ -15,7 +15,7 @@ protocol APIService {
 }
 
 extension APIService {
-    func test(string: String) -> AnyPublisher<APIResult<TestModel>, APIError> {
+    func test(string: String) -> AnyPublisher<APIResult<[TestModel]>, APIError> {
         return session.request(API.TEST(string))
             .eraseToAnyPublisher()
     }

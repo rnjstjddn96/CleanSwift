@@ -8,13 +8,16 @@
 import Foundation
 import UIKit
 import SnapKit
+import RxSwift
 
 class MainView: UIView {
+    var buttonTextSubject = PublishSubject<String>()
+    
     let button = UIButton.Builder()
         .withBackground(color: .black)
         .withTextColor(.white, for: .normal)
         .withFont(.systemFont(ofSize: 15))
-        .withText("Route to another", for: .normal)
+        .withText("Get Data", for: .normal)
         .withCornerRadius(radius: 10)
         .build()
     

@@ -24,40 +24,18 @@ class MainRouter: NSObject, MainRoutingLogic, MainDataPassing {
     weak var viewController: MainViewController?
     var dataStore: MainDataStore?
     
+    // MARK: Routing
     func routeToSomewhere() {
-        let destination = LoginViewController()
-        destination.modalTransitionStyle = .flipHorizontal
-        destination.modalPresentationStyle = .fullScreen
-        self.viewController?.present(destination, animated: true, completion: nil)
+        let destinationVC = LoginViewController()
+        var destinationDS = destinationVC.router!.dataStore!
+        passDataToLogin(source: self.dataStore!, destination: &destinationDS)
+        destinationVC.modalTransitionStyle = .flipHorizontal
+        destinationVC.modalPresentationStyle = .fullScreen
+        self.viewController?.present(destinationVC, animated: true, completion: nil)
     }
     
-    // MARK: Routing
-    //func routeToSomewhere(segue: UIStoryboardSegue?)
-    //{
-    //  if let segue = segue {
-    //    let destinationVC = segue.destination as! SomewhereViewController
-    //    var destinationDS = destinationVC.router!.dataStore!
-    //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-    //  } else {
-    //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    //    let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-    //    var destinationDS = destinationVC.router!.dataStore!
-    //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-    //    navigateToSomewhere(source: viewController!, destination: destinationVC)
-    //  }
-    //}
-    
-    // MARK: Navigation
-    
-    //func navigateToSomewhere(source: MainViewController, destination: SomewhereViewController)
-    //{
-    //  source.show(destination, sender: nil)
-    //}
-    
     // MARK: Passing data
-    
-    //func passDataToSomewhere(source: MainDataStore, destination: inout SomewhereDataStore)
-    //{
-    //  destination.name = source.name
-    //}
+    func passDataToLogin(source: MainDataStore, destination: inout LoginDataStore) {
+        destination.todos = source.todos
+    }
 }

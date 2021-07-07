@@ -13,31 +13,32 @@
 import UIKit
 
 protocol MainBusinessLogic {
-  func doSomething(request: Main.Something.Request)
+    func reqeustTodos(request: Main.TodoList.Request)
 }
 
 protocol MainDataStore {
-  //var name: String { get set }
+    var todos: [TestModel] { get set }
 }
 
 class MainInteractor: MainBusinessLogic, MainDataStore {
-  var presenter: MainPresentationLogic?
-  var worker: MainWorker?
-  //var name: String = ""
-  
-  // MARK: Do something
-  func doSomething(request: Main.Something.Request) {
+    var presenter: MainPresentationLogic?
+    var worker: MainWorker?
+    var todos: [TestModel] = []
     
-    worker = MainWorker()
-    worker?.doSomeWork(onComplete: { [weak self] result in
-        guard let self = self else { return }
-        let response = Main.Something.Response(result: result)
-        self.presenter?.presentSomething(response: response)
-    }, onError: { [weak self] error in
-        guard let self = self else { return }
-        self.presenter?.presentError(
-            response: Main.Something.Response(result: nil, error: error)
-        )
-    })
-  }
+    // MARK: Do something
+    func reqeustTodos(request: Main.TodoList.Request) {
+        worker = MainWorker()
+        
+        worker?.getTodos(onComplete: { [weak self] result in
+            guard let self = self else { return }
+            let response = Main.TodoList.Response(result: result)
+            self.todos = response.result
+            self.presenter?.presentTodos(response: response)
+        }, onError: { [weak self] error in
+            guard let self = self else { return }
+            self.presenter?.presentError(
+                response: Main.TodoList.Response(result: [], error: error)
+            )
+        })
+    }
 }

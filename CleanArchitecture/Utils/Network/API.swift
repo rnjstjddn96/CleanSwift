@@ -10,8 +10,6 @@ import Alamofire
 
 enum API {
     case TEST(_ string: String)
-    
-   
 }
 
 extension API: RequestBuilder {
@@ -28,8 +26,8 @@ extension API: RequestBuilder {
     
     var path: String {
         switch self {
-        case .TEST(let string):
-            return string 
+        case .TEST(_):
+            return "todos"
         
         }
     }
@@ -45,15 +43,14 @@ extension API: RequestBuilder {
     var headers: HTTPHeaders {
         var headers = HTTPHeaders()
         switch self {
-        
-        case .TEST:
-            return headers
+            case .TEST:
+                headers["Content-Type"] = "Application/json"
+                return headers
         }
     }
     
     var parameters: Parameters? {
         var parameters = Parameters()
-        
         switch self {
         case .TEST(_):
             return nil
@@ -63,7 +60,6 @@ extension API: RequestBuilder {
     
     var multipartData: Multiparts? {
         var multipartItem = [String: Data?]()
-
         return multipartItem
     }
 }

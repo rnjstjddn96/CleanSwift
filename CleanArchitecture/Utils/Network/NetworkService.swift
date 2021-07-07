@@ -11,7 +11,6 @@ import Combine
 import SwiftyBeaver
 import SwiftyJSON
 
-let log = SwiftyBeaver.self
 protocol NetworkServiceInterface: class {
     func request<T>(_ apiBuilder: RequestBuilder, _ decoder: JSONDecoder)
                         -> AnyPublisher<APIResult<T>, APIError> where T: Decodable

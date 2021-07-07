@@ -18,7 +18,7 @@ class MainWorker: APIService {
     var session: NetworkService = NetworkService()
     var cancellable: Set<AnyCancellable> = []
     
-    func doSomeWork(onComplete: @escaping((TestModel) -> Void),
+    func getTodos(onComplete: @escaping(([TestModel]) -> Void),
                     onError: @escaping((Error) -> Void)) {
         test(string: "test")
             .sink { completion in

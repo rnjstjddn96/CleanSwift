@@ -13,23 +13,25 @@
 import UIKit
 
 protocol MainPresentationLogic {
-    func presentSomething(response: Main.Something.Response)
-    func presentError(response: Main.Something.Response)
+    func presentTodos(response: Main.TodoList.Response)
+    func presentError(response: Main.TodoList.Response)
 }
 
 class MainPresenter: MainPresentationLogic {
     weak var viewController: MainDisplayLogic?
     
     // MARK: Do something
-    
-    func presentSomething(response: Main.Something.Response) {
-        let viewModel = Main.Something.ViewModel()
-        viewController?.displaySomething(viewModel: viewModel)
+    func presentTodos(response: Main.TodoList.Response) {
+        let viewModel = Main.TodoList.ViewModel(
+            result: response.result,
+            error: nil
+        )
+        viewController?.displayTest(viewModel: viewModel)
     }
     
-    func presentError(response: Main.Something.Response) {
+    func presentError(response: Main.TodoList.Response) {
         viewController?.displayError(
-            viewModel: Main.Something.ViewModel(result: nil, error: response.error)
+            viewModel: Main.TodoList.ViewModel(result: [], error: response.error)
         )
     }
 }
