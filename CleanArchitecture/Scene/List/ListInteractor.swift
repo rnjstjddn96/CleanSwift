@@ -1,5 +1,5 @@
 //
-//  LoginInteractor.swift
+//  ListInteractor.swift
 //  CleanArchitecture
 //
 //  Created by imform-mm-2101 on 2021/07/06.
@@ -12,25 +12,25 @@
 
 import UIKit
 
-protocol LoginBusinessLogic {
-    func doSomething(request: Login.Something.Request)
+protocol ListBusinessLogic {
+    func doSomething(request: List.Something.Request)
 }
 
-protocol LoginDataStore {
+protocol ListDataStore {
     var todos: [TestModel] { get set }
 }
 
-class LoginInteractor: LoginBusinessLogic, LoginDataStore {
-    var presenter: LoginPresentationLogic?
-    var worker: LoginWorker?
+class ListInteractor: ListBusinessLogic, ListDataStore {
+    var presenter: ListPresentationLogic?
+    var worker: ListWorker?
     var todos: [TestModel] = []
     
     // MARK: Do something
-    func doSomething(request: Login.Something.Request) {
-        worker = LoginWorker()
+    func doSomething(request: List.Something.Request) {
+        worker = ListWorker()
         worker?.doSomeWork()
         
-        let response = Login.Something.Response()
+        let response = List.Something.Response()
         presenter?.presentSomething(response: response)
     }
 }

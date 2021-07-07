@@ -1,5 +1,5 @@
 //
-//  LoginRouter.swift
+//  ListRouter.swift
 //  CleanArchitecture
 //
 //  Created by imform-mm-2101 on 2021/07/06.
@@ -12,17 +12,17 @@
 
 import UIKit
 
-@objc protocol LoginRoutingLogic {
+@objc protocol ListRoutingLogic {
     //func routeToSomewhere(segue: UIStoryboardSegue?)
 }
 
-protocol LoginDataPassing {
-    var dataStore: LoginDataStore? { get }
+protocol ListDataPassing {
+    var dataStore: ListDataStore? { get }
 }
 
-class LoginRouter: NSObject, LoginRoutingLogic, LoginDataPassing {
-    weak var viewController: LoginViewController?
-    var dataStore: LoginDataStore?
+class ListRouter: NSObject, ListRoutingLogic, ListDataPassing {
+    weak var viewController: ListViewController?
+    var dataStore: ListDataStore?
     
     // MARK: Routing
     
@@ -43,14 +43,14 @@ class LoginRouter: NSObject, LoginRoutingLogic, LoginDataPassing {
     
     // MARK: Navigation
     
-    //func navigateToSomewhere(source: LoginViewController, destination: SomewhereViewController)
+    //func navigateToSomewhere(source: ListViewController, destination: SomewhereViewController)
     //{
     //  source.show(destination, sender: nil)
     //}
     
     // MARK: Passing data
     
-    //func passDataToSomewhere(source: LoginDataStore, destination: inout SomewhereDataStore)
+    //func passDataToSomewhere(source: ListDataStore, destination: inout SomewhereDataStore)
     //{
     //  destination.name = source.name
     //}

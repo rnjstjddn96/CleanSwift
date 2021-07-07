@@ -16,12 +16,12 @@
 		EA37937F2694596D002F81DF /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3793782694596C002F81DF /* NetworkService.swift */; };
 		EA3793802694596D002F81DF /* NetworkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3793792694596C002F81DF /* NetworkConfig.swift */; };
 		EA3793A726945B5D002F81DF /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3793A626945B5D002F81DF /* TestModel.swift */; };
-		EA38197826946072007719C3 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA38197226946072007719C3 /* LoginPresenter.swift */; };
-		EA38197926946072007719C3 /* LoginWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA38197326946072007719C3 /* LoginWorker.swift */; };
-		EA38197A26946072007719C3 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA38197426946072007719C3 /* LoginRouter.swift */; };
-		EA38197B26946072007719C3 /* LoginModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA38197526946072007719C3 /* LoginModels.swift */; };
-		EA38197C26946072007719C3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA38197626946072007719C3 /* LoginViewController.swift */; };
-		EA38197D26946072007719C3 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA38197726946072007719C3 /* LoginInteractor.swift */; };
+		EA38197826946072007719C3 /* ListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA38197226946072007719C3 /* ListPresenter.swift */; };
+		EA38197926946072007719C3 /* ListWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA38197326946072007719C3 /* ListWorker.swift */; };
+		EA38197A26946072007719C3 /* ListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA38197426946072007719C3 /* ListRouter.swift */; };
+		EA38197B26946072007719C3 /* ListModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA38197526946072007719C3 /* ListModels.swift */; };
+		EA38197C26946072007719C3 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA38197626946072007719C3 /* ListViewController.swift */; };
+		EA38197D26946072007719C3 /* ListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA38197726946072007719C3 /* ListInteractor.swift */; };
 		EA38198026946122007719C3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA38197F26946122007719C3 /* MainView.swift */; };
 		EA38198926946188007719C3 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA38198426946188007719C3 /* Validation.swift */; };
 		EA38198A26946188007719C3 /* ButtonBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA38198526946188007719C3 /* ButtonBuilder.swift */; };
@@ -53,12 +53,12 @@
 		EA3793782694596C002F81DF /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		EA3793792694596C002F81DF /* NetworkConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkConfig.swift; sourceTree = "<group>"; };
 		EA3793A626945B5D002F81DF /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
-		EA38197226946072007719C3 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
-		EA38197326946072007719C3 /* LoginWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWorker.swift; sourceTree = "<group>"; };
-		EA38197426946072007719C3 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
-		EA38197526946072007719C3 /* LoginModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModels.swift; sourceTree = "<group>"; };
-		EA38197626946072007719C3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		EA38197726946072007719C3 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
+		EA38197226946072007719C3 /* ListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPresenter.swift; sourceTree = "<group>"; };
+		EA38197326946072007719C3 /* ListWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListWorker.swift; sourceTree = "<group>"; };
+		EA38197426946072007719C3 /* ListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRouter.swift; sourceTree = "<group>"; };
+		EA38197526946072007719C3 /* ListModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModels.swift; sourceTree = "<group>"; };
+		EA38197626946072007719C3 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		EA38197726946072007719C3 /* ListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListInteractor.swift; sourceTree = "<group>"; };
 		EA38197F26946122007719C3 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		EA38198426946188007719C3 /* Validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		EA38198526946188007719C3 /* ButtonBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonBuilder.swift; sourceTree = "<group>"; };
@@ -112,7 +112,7 @@
 		EA3793A226945B36002F81DF /* Scene */ = {
 			isa = PBXGroup;
 			children = (
-				EA3819712694605B007719C3 /* Login */,
+				EA3819712694605B007719C3 /* List */,
 				EAEBAFDB26945833008FCDA2 /* Main */,
 			);
 			path = Scene;
@@ -134,17 +134,17 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		EA3819712694605B007719C3 /* Login */ = {
+		EA3819712694605B007719C3 /* List */ = {
 			isa = PBXGroup;
 			children = (
-				EA38197226946072007719C3 /* LoginPresenter.swift */,
-				EA38197326946072007719C3 /* LoginWorker.swift */,
-				EA38197426946072007719C3 /* LoginRouter.swift */,
-				EA38197526946072007719C3 /* LoginModels.swift */,
-				EA38197626946072007719C3 /* LoginViewController.swift */,
-				EA38197726946072007719C3 /* LoginInteractor.swift */,
+				EA38197226946072007719C3 /* ListPresenter.swift */,
+				EA38197326946072007719C3 /* ListWorker.swift */,
+				EA38197426946072007719C3 /* ListRouter.swift */,
+				EA38197526946072007719C3 /* ListModels.swift */,
+				EA38197626946072007719C3 /* ListViewController.swift */,
+				EA38197726946072007719C3 /* ListInteractor.swift */,
 			);
-			path = Login;
+			path = List;
 			sourceTree = "<group>";
 		};
 		EA38198326946188007719C3 /* Validation */ = {
@@ -351,29 +351,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA38197C26946072007719C3 /* LoginViewController.swift in Sources */,
+				EA38197C26946072007719C3 /* ListViewController.swift in Sources */,
 				EA38198D26946188007719C3 /* TextFieldBuilder.swift in Sources */,
 				EA37937C2694596D002F81DF /* APIService.swift in Sources */,
-				EA38197B26946072007719C3 /* LoginModels.swift in Sources */,
+				EA38197B26946072007719C3 /* ListModels.swift in Sources */,
 				EAEBAFC526945761008FCDA2 /* AppDelegate.swift in Sources */,
 				EAEBAFC726945761008FCDA2 /* SceneDelegate.swift in Sources */,
 				EA37937D2694596D002F81DF /* RequestBuilder.swift in Sources */,
 				EA37937E2694596D002F81DF /* APIError + APIResult.swift in Sources */,
 				EA38198026946122007719C3 /* MainView.swift in Sources */,
-				EA38197926946072007719C3 /* LoginWorker.swift in Sources */,
+				EA38197926946072007719C3 /* ListWorker.swift in Sources */,
 				EA37937A2694596D002F81DF /* NetworkChecker.swift in Sources */,
 				EA37937F2694596D002F81DF /* NetworkService.swift in Sources */,
 				EA381994269530C2007719C3 /* AlertUtils.swift in Sources */,
 				EA37937B2694596D002F81DF /* API.swift in Sources */,
 				EA38198A26946188007719C3 /* ButtonBuilder.swift in Sources */,
 				EAEBAFE326945856008FCDA2 /* MainWorker.swift in Sources */,
-				EA38197D26946072007719C3 /* LoginInteractor.swift in Sources */,
-				EA38197826946072007719C3 /* LoginPresenter.swift in Sources */,
+				EA38197D26946072007719C3 /* ListInteractor.swift in Sources */,
+				EA38197826946072007719C3 /* ListPresenter.swift in Sources */,
 				EA38198B26946188007719C3 /* LabelBuilder.swift in Sources */,
 				EAEBAFE226945856008FCDA2 /* MainPresenter.swift in Sources */,
 				EAEBAFE726945856008FCDA2 /* MainInteractor.swift in Sources */,
 				EA3793A726945B5D002F81DF /* TestModel.swift in Sources */,
-				EA38197A26946072007719C3 /* LoginRouter.swift in Sources */,
+				EA38197A26946072007719C3 /* ListRouter.swift in Sources */,
 				EA3793802694596D002F81DF /* NetworkConfig.swift in Sources */,
 				EAEBAFE526945856008FCDA2 /* MainModels.swift in Sources */,
 				EA38198C26946188007719C3 /* Builder.swift in Sources */,

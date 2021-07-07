@@ -1,5 +1,5 @@
 //
-//  LoginModels.swift
+//  ListWorker.swift
 //  CleanArchitecture
 //
 //  Created by imform-mm-2101 on 2021/07/06.
@@ -12,14 +12,7 @@
 
 import UIKit
 
-enum Login {
-    // MARK: Use cases
-    enum Something {
-        struct Request {
-        }
-        struct Response {
-        }
-        struct ViewModel {
-        }
+class ListWorker {
+    func doSomeWork() {
     }
 }

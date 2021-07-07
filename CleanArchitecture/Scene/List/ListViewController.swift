@@ -1,5 +1,5 @@
 //
-//  LoginViewController.swift
+//  ListViewController.swift
 //  CleanArchitecture
 //
 //  Created by imform-mm-2101 on 2021/07/06.
@@ -13,13 +13,13 @@
 import UIKit
 import RxSwift
 
-protocol LoginDisplayLogic: class {
-    func displaySomething(viewModel: Login.Something.ViewModel)
+protocol ListDisplayLogic: class {
+    func displaySomething(viewModel: List.Something.ViewModel)
 }
 
-class LoginViewController: UIViewController, LoginDisplayLogic {
-    var interactor: LoginBusinessLogic?
-    var router: (NSObjectProtocol & LoginRoutingLogic & LoginDataPassing)?
+class ListViewController: UIViewController, ListDisplayLogic {
+    var interactor: ListBusinessLogic?
+    var router: (NSObjectProtocol & ListRoutingLogic & ListDataPassing)?
     var disposeBag = DisposeBag()
     
     // MARK: Object lifecycle
@@ -36,9 +36,9 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
     // MARK: Setup
     private func setup() {
         let viewController = self
-        let interactor = LoginInteractor()
-        let presenter = LoginPresenter()
-        let router = LoginRouter()
+        let interactor = ListInteractor()
+        let presenter = ListPresenter()
+        let router = ListRouter()
         viewController.interactor = interactor
         viewController.router = router
         interactor.presenter = presenter
@@ -64,11 +64,11 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
     
     // MARK: Do something
     func doSomething() {
-        let request = Login.Something.Request()
+        let request = List.Something.Request()
         interactor?.doSomething(request: request)
     }
     
-    func displaySomething(viewModel: Login.Something.ViewModel) {
+    func displaySomething(viewModel: List.Something.ViewModel) {
         //nameTextField.text = viewModel.name
     }
     

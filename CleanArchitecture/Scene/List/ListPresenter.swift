@@ -1,5 +1,5 @@
 //
-//  LoginPresenter.swift
+//  ListPresenter.swift
 //  CleanArchitecture
 //
 //  Created by imform-mm-2101 on 2021/07/06.
@@ -12,17 +12,17 @@
 
 import UIKit
 
-protocol LoginPresentationLogic {
-    func presentSomething(response: Login.Something.Response)
+protocol ListPresentationLogic {
+    func presentSomething(response: List.Something.Response)
 }
 
-class LoginPresenter: LoginPresentationLogic {
-    weak var viewController: LoginDisplayLogic?
+class ListPresenter: ListPresentationLogic {
+    weak var viewController: ListDisplayLogic?
     
     // MARK: Do something
     
-    func presentSomething(response: Login.Something.Response) {
-        let viewModel = Login.Something.ViewModel()
+    func presentSomething(response: List.Something.Response) {
+        let viewModel = List.Something.ViewModel()
         viewController?.displaySomething(viewModel: viewModel)
     }
 }

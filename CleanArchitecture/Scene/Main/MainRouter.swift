@@ -26,16 +26,16 @@ class MainRouter: NSObject, MainRoutingLogic, MainDataPassing {
     
     // MARK: Routing
     func routeToSomewhere() {
-        let destinationVC = LoginViewController()
+        let destinationVC = ListViewController()
         var destinationDS = destinationVC.router!.dataStore!
-        passDataToLogin(source: self.dataStore!, destination: &destinationDS)
+        passDataToList(source: self.dataStore!, destination: &destinationDS)
         destinationVC.modalTransitionStyle = .flipHorizontal
         destinationVC.modalPresentationStyle = .fullScreen
         self.viewController?.present(destinationVC, animated: true, completion: nil)
     }
     
     // MARK: Passing data
-    func passDataToLogin(source: MainDataStore, destination: inout LoginDataStore) {
+    func passDataToList(source: MainDataStore, destination: inout ListDataStore) {
         destination.todos = source.todos
     }
 }
