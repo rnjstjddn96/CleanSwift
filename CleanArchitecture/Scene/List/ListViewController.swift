@@ -22,6 +22,9 @@ class ListViewController: UIViewController, ListDisplayLogic {
     var router: (NSObjectProtocol & ListRoutingLogic & ListDataPassing)?
     var disposeBag = DisposeBag()
     
+    var listView = UITableView()
+    var todos: [TestModel] = []
+    
     // MARK: Object lifecycle
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -50,7 +53,7 @@ class ListViewController: UIViewController, ListDisplayLogic {
     // MARK: View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .systemIndigo
+        self.view.backgroundColor = .white
         
         Observable<Int>
             .interval(.seconds(5), scheduler: MainScheduler.instance)
@@ -60,6 +63,8 @@ class ListViewController: UIViewController, ListDisplayLogic {
                 self.dismiss(animated: true, completion: nil)
             }
             .disposed(by: disposeBag)
+        
+        self.setTableView()
     }
     
     // MARK: Do something
@@ -68,12 +73,37 @@ class ListViewController: UIViewController, ListDisplayLogic {
         interactor?.doSomething(request: request)
     }
     
-    func displaySomething(viewModel: List.Something.ViewModel) {
-        //nameTextField.text = viewModel.name
-    }
+    func displaySomething(viewModel: List.Something.ViewModel) { }
     
     //MARK: Private
-    private func infos() {
-        print(self.router?.dataStore?.todos)
+    private func getTodos() {
+        guard let todos = self.router?.dataStore?.todos else { return }
+        self.todos = todos
+    }
+    
+    private func setTableView() {
+        self.view.addSubview(listView)
+        listView.snp.makeConstraints { create in
+            create.left.right.bottom.equalToSuperview()
+            create.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
+        }
+        
+        getTodos()
+        listView.separatorStyle = .none
+        listView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        listView.delegate = self
+        listView.dataSource = self
+    }
+}
+
+extension ListViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.todos.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.text = self.todos[indexPath.row].title
+        return cell
     }
 }

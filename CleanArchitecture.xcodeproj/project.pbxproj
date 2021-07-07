@@ -39,6 +39,7 @@
 		EAEBAFE526945856008FCDA2 /* MainModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEBAFDF26945856008FCDA2 /* MainModels.swift */; };
 		EAEBAFE626945856008FCDA2 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEBAFE026945856008FCDA2 /* MainViewController.swift */; };
 		EAEBAFE726945856008FCDA2 /* MainInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEBAFE126945856008FCDA2 /* MainInteractor.swift */; };
+		EAFE60A5269598F100029330 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFE60A4269598F100029330 /* Strings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,7 @@
 		EAEBAFDF26945856008FCDA2 /* MainModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModels.swift; sourceTree = "<group>"; };
 		EAEBAFE026945856008FCDA2 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		EAEBAFE126945856008FCDA2 /* MainInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInteractor.swift; sourceTree = "<group>"; };
+		EAFE60A4269598F100029330 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +186,7 @@
 		EAEBAFC326945761008FCDA2 /* CleanArchitecture */ = {
 			isa = PBXGroup;
 			children = (
+				EAFE60A3269598E600029330 /* Resource */,
 				EA3793A526945B4C002F81DF /* Model */,
 				EA3793A326945B3D002F81DF /* View */,
 				EA3793A226945B36002F81DF /* Scene */,
@@ -236,6 +239,14 @@
 				EA3793762694596C002F81DF /* RequestBuilder.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		EAFE60A3269598E600029330 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				EAFE60A4269598F100029330 /* Strings.swift */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -373,6 +384,7 @@
 				EAEBAFE226945856008FCDA2 /* MainPresenter.swift in Sources */,
 				EAEBAFE726945856008FCDA2 /* MainInteractor.swift in Sources */,
 				EA3793A726945B5D002F81DF /* TestModel.swift in Sources */,
+				EAFE60A5269598F100029330 /* Strings.swift in Sources */,
 				EA38197A26946072007719C3 /* ListRouter.swift in Sources */,
 				EA3793802694596D002F81DF /* NetworkConfig.swift in Sources */,
 				EAEBAFE526945856008FCDA2 /* MainModels.swift in Sources */,

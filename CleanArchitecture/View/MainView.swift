@@ -17,7 +17,6 @@ class MainView: UIView {
         .withBackground(color: .black)
         .withTextColor(.white, for: .normal)
         .withFont(.systemFont(ofSize: 15))
-        .withText("Get Data", for: .normal)
         .withCornerRadius(radius: 10)
         .build()
     

@@ -25,7 +25,6 @@ class MainViewController: UIViewController, MainDisplayLogic {
     var disposeBag = DisposeBag()
     let mainView = MainView()
     
-    
     // MARK: Object lifecycle
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -59,6 +58,11 @@ class MainViewController: UIViewController, MainDisplayLogic {
         setAction()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        mainView.buttonTextSubject.onNext(Strings.Main.GET_DATA)
+    }
+    
     //MARK: Private
     private func requestTest() {
         let request = Main.TodoList.Request()
@@ -82,9 +86,7 @@ class MainViewController: UIViewController, MainDisplayLogic {
             .disposed(by: disposeBag)
         
         mainView.buttonTextSubject
-            .bind { [weak self] in
-                self?.mainView.button.setTitle($0, for: .normal)
-            }
+            .bind(to: self.mainView.button.rx.title(for: .normal))
             .disposed(by: disposeBag)
             
     }
